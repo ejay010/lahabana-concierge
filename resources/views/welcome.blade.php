@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,10 +18,10 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
-    <body id="app">
+    <body id="app" class="bg-[#00569d] antialiased">
         <header class="flex flex-col bg-[url(../images/hero-bg.jpg)] bg-[#00569d] bg-blend-soft-light bg-center bg-cover text-white font-roboto">
             <div class="bg-white text-black">
-                <nav class="flex flex-col items-center justify-between p-4">
+                <nav class="md:flex items-center justify-between">
                     <div class="flex items-center justify-between w-full max-w-4xl mx-auto">
                         <a href="#">
                             <img src="{{ Vite::asset('resources/images/logo-no-background.png') }}" alt="La Habana Medical Concierge" class="h-25 mx-auto ">
@@ -39,15 +39,28 @@
                     </div>
                     <ul class="space-y-2 text-lg md:hidden transition-discrete" :class="{'hidden' : ! showMobileMenu, 'block' : showMobileMenu }">
                         <li>
-                            <a href="#">Our Services</a>
+                            <a href="#services" class="hover:text-[#00b9bb]">Our Services</a>
                         </li>
                         
                         <li>
-                            <a href="#">About Us</a>
+                            <a href="#AboutUs" class="hover:text-[#00b9bb]">About Us</a>
                         </li>
                         
                         <li>
-                            <a href="#">Contact Us</a>
+                            <a href="#contact" class="hover:text-[#00b9bb]">Contact Us</a>
+                        </li>
+                    </ul>
+                    <ul class="hidden md:flex space-x-6">
+                        <li>
+                            <a href="#services" class="hover:text-[#00b9bb]">Our Services</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#AboutUs" class="hover:text-[#00b9bb]">About Us</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#contact" class="hover:text-[#00b9bb]">Contact Us</a>
                         </li>
                     </ul>
                 </nav>
@@ -60,7 +73,7 @@
                 <p class="text-lg my-2 text-shadow-lg">Your personal guide to Medical & Dental Tourism of Havana, Cuba</p>
             </div>
         </header>
-        <main>
+        <main class="max-w-4xl mx-auto bg-white shadow-lg my-4 rounded-lg">
             <section id="AboutUs" class="p-4 font-roboto">
                 <h1 class="text-3xl text-center font-bold">About Us</h1>
                 <p class="my-2">
@@ -147,15 +160,28 @@
                 </ul>
             </section>
             
-            <section class="font-roboto bg-[#00569d] p-4">
-                <h1 class="text-3xl text-center font-bold text-white">Contact Us</h1>
-                <form action="#" method="POST" class="bg-white shadow-md rounded-lg border-2 border-gray-300 m-2">
+            <section class="font-roboto p-4" id="contact">
+                <h1 class="text-3xl text-center font-bold text-black">Contact Us</h1>
+                <form action="{{ route('contact.submit') }}" method="POST" class="bg-white shadow-md rounded-lg border-2 border-gray-300 m-2">
+                    @csrf
                     <div class="flex flex-col md:flex-row gap-4 p-4">
-                        <input type="text" name="name" placeholder="Your Name" class="flex-1 p-2 border border-gray-300 rounded">
-                        <input type="email" name="email" placeholder="Your Email" class="flex-1 p-2 border border-gray-300 rounded">
+                        <input type="text" name="name" placeholder="Your Name" class="flex-1 p-2 border border-gray-300 rounded" required>
+                        <input type="email" name="email" placeholder="Your Email" class="flex-1 p-2 border border-gray-300 rounded" required>
                     </div>
                     <div class="p-4">
-                        <textarea name="message" rows="4" placeholder="Your Message" class="w-full p-2 border border-gray-300 rounded"></textarea>
+                        <select type="text" name="subject" placeholder="Subject" class="w-full p-2 border border-gray-300 rounded" required>
+                            <option value="" disabled selected>Select Subject</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Medical Services">Medical Services</option>
+                            <option value="Dental Services">Dental Services</option>
+                            <option value="Travel Arrangements">Travel Arrangements</option>
+                            <option value="Spa/Beauty Services">Spa/Beauty Services</option>
+                            <option value="Leisure Activities">Leisure Activities</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="p-4">
+                        <textarea name="message" rows="4" placeholder="Your Message" class="w-full p-2 border border-gray-300 rounded" required></textarea>
                     </div>
                     <div class="p-4 text-center">
                         <button type="submit" class="bg-[#00b9bb] text-white px-6 py-2 rounded hover:bg-[#008f8f] transition-colors">Send Message</button>
@@ -164,7 +190,17 @@
             </section>
         </main>
         <footer>
-
+            <div class="bg-[#00569d] text-white text-center p-4">
+                <p>&copy; 2025 La Habana Medical Concierge. All rights reserved.</p>
+                <p>Follow us on:
+                    <a href="#" class="text-white hover:text-gray-300">Facebook</a>,
+                    <a href="#" class="text-white hover:text-gray-300">Twitter</a>,
+                    <a href="#" class="text-white hover:text-gray-300">Instagram</a>
+                </p>
+            </div>
+            <div class="bg-[#00b9bb] text-white text-center p-2">
+                <p>Designed with ❤️ by <a href="https://ek3solutions.com/" target="_blank">EK3 Solutions</a></p>
+            </div>
         </footer>
         <script>
             const { createApp } = Vue;
