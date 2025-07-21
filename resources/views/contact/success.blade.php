@@ -28,7 +28,7 @@
                     <a href="{{route('home')}}" class="flex items-center p-4">
                             <img src="{{ Vite::asset('resources/images/logo-no-background.png') }}" alt="La Habana Medical Concierge" class=" mx-auto ">
                 </a>
-            <a class="bg-[#00569d] text-white px-6 py-2 rounded hover:bg-[#008f8f] transition-colors mt-4 text-2xl">Back to Homepage</a>
+            <a href="{{ route('home') }}" class="bg-[#00569d] text-white px-6 py-2 rounded hover:bg-[#008f8f] transition-colors mt-4 text-2xl">Back to Homepage</a>
 
             </div>
                 
