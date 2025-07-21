@@ -22,13 +22,13 @@
         <header class="flex flex-col bg-[url(../images/abstract-doctor.jpg)] bg-white bg-blend-multipy bg-center bg-cover text-white font-roboto">
             <div class="flex flex-col items-center justify-center min-h-screen text-center p-4">
                 <div class="bg-white bg-opacity-80 backdrop-blur-lg rounded-lg shadow-lg p-6 mb-4">
-                                    <h1 class="text-4xl font-bold text-[#00569d]">Contact request Submitted Successfully</h1>
-                    <p class="text-lg text-gray-700 mt-2">Thank you for reaching out to us. We will get back to you shortly.</p>
+                                    <h1 class="text-2xl md:text-4xl font-bold text-[#00569d]">Contact request Submitted Successfully</h1>
+                    <p class="md:text-lg text-gray-700 mt-2">Thank you for reaching out to us. We will get back to you shortly.</p>
 
                     <a href="{{route('home')}}" class="flex items-center p-4">
                             <img src="{{ Vite::asset('resources/images/logo-no-background.png') }}" alt="La Habana Medical Concierge" class=" mx-auto ">
                 </a>
-            <a href="{{ route('home') }}" class="bg-[#00569d] text-white px-6 py-2 rounded hover:bg-[#008f8f] transition-colors mt-4 text-2xl">Back to Homepage</a>
+            <a href="{{ route('home') }}" class="bg-[#00569d] text-white px-6 py-2 rounded hover:bg-[#008f8f] transition-colors mt-4 md:text-2xl">Back to Homepage</a>
 
             </div>
                 
